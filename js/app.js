@@ -50,7 +50,7 @@ const app = {
     this.$animalContainer.innerHTML = iconElements.join("");
   },
   createDropzone() {
-    let types = this.animalData.animals.map((typeObj) => typeObj.type);
+    let types = this.animalData.animals.map((value) => value.type);
 
     const dropContainers = types.map((type) => {
       return `<div data-type="${type}"><h2>${type}</h2></div>`;

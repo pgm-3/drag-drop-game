@@ -39,7 +39,8 @@ const app = {
     // itereren door elk animal object
     for (const type of this.animalData.animals) {
       const icons = type.icons.map(
-        (icon) => `<img src="./icons/${icon}.png" alt="${icon}">`
+        (icon) =>
+          `<img data-type="${type.type}" data-id="${icon}" src="./icons/${icon}.png" alt="${icon}">`
       );
       iconElements.push(...icons);
     }
@@ -52,7 +53,7 @@ const app = {
     let types = this.animalData.animals.map((typeObj) => typeObj.type);
 
     const dropContainers = types.map((type) => {
-      return `<div><h2>${type}</h2></div>`;
+      return `<div data-type="${type}"><h2>${type}</h2></div>`;
     });
 
     this.$dropzone.innerHTML = dropContainers.join("");

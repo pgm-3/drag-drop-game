@@ -16,7 +16,16 @@ const app = {
     this.$animalContainer = document.querySelector("#animals");
     this.$dropzone = document.querySelector("#dropzone");
   },
-  registerListeners() {},
+  registerListeners() {
+    // animal container events
+    this.$animalContainer.addEventListener("dragstart", dr.onDragStart);
+
+    // drop container events
+    this.$dropzone.addEventListener("dragenter", dr.onDragEnter);
+    this.$dropzone.addEventListener("dragover", dr.onDragOver);
+    this.$dropzone.addEventListener("dragleave", dr.onDragLeave);
+    this.$dropzone.addEventListener("drop", dr.onDrop);
+  },
   async fetchData() {
     const response = await fetch(JSON_PATH);
     this.animalData = await response.json();
